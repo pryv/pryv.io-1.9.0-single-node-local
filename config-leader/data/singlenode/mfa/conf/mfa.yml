@@ -1,0 +1,19 @@
+---
+http:
+  port: 7000
+  ip: 0.0.0.0
+logs:
+  prefix: mfa
+  console:
+    active: true
+    level: info
+    colorize: true
+  file:
+    active: false
+core:
+  url: http://core:3000
+sms:
+  mode: MFA_MODE
+  endpoints: MFA_ENDPOINTS
+sessions:
+  ttlSeconds: MFA_SESSIONS_TTL_SECONDS

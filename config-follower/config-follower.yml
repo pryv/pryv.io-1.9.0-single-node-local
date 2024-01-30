@@ -1,0 +1,24 @@
+version: '3.5'
+services:
+  config-follower:
+    image: "eu.gcr.io/pryvio/config-follower:1.0.9"
+    container_name: pryvio_config_follower
+    networks:
+      - frontend
+      - backend
+    volumes:
+      - ../pryv:/app/pryv/
+      - ./conf/:/app/conf/
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      # adapt host mounting point to match the user with whom you performed 'docker login'
+      - /home/docker/.docker/config.json:/root/.docker/config.json 
+    restart: always
+    environment:
+      - PRYV_CONF_ROOT
+networks:
+  frontend:
+    driver: bridge
+    name: pryv_frontend
+  backend:
+    driver: bridge
+    name: pryv_backend

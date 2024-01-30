@@ -1,0 +1,37 @@
+{
+  "metadataUpdater": {
+    "host": "127.0.0.1",
+    "port": 9000
+  },
+  
+  "logs": {
+    "console": {
+      "level": "info"
+    }
+  },
+  
+  "database": {
+    "host": "mongodb",
+    "port": 27017,
+    "name": "pryv-node"
+  },
+
+  "userFiles": {
+    "path": "/app/data/users"
+  },
+
+  "serviceInfoUrl": "http://register:9000/service/info",
+
+  "backwardCompatibility": {
+    "systemStreams": {
+      "prefix": {
+        "isActive": BACKWARD_COMPATIBILITY_SYSTEM_STREAMS_PREFIX
+      }
+    },
+    "tags": BACKWARD_COMPATIBILITY_TAGS
+  },
+
+  "nats": {
+    "uri": "https://core:4222"
+  }
+}

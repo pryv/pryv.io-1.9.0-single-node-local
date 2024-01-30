@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+# Directory where application configuration files are supposed to be stored
+export PRYV_CONF_ROOT="/var/pryv"
+
+# check
+[[ -e ${PRYV_CONF_ROOT}/config-follower/config-follower.yml ]] || { echo >&2 "The file ${PRYV_CONF_ROOT}/config-follower/config-follower.yml was not found."; exit 1; }
+
+# run
+echo "Running Pryv/config-follower component."
+docker-compose -f ${PRYV_CONF_ROOT}/config-follower/config-follower.yml up -d

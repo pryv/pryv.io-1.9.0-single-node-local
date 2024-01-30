@@ -1,0 +1,31 @@
+version: '3.5'
+services:
+  core:
+    image: "eu.gcr.io/pryvio/core:1.7.12"
+    container_name: pryvio_core_migration_1.7
+    volumes:
+      - ${PRYV_CONF_ROOT}/pryv/core/conf/:/app/conf/:ro
+      - ${PRYV_CONF_ROOT}/pryv/core/data/:/app/data/
+      - ${PRYV_CONF_ROOT}/pryv/core/log/:/app/log/
+      - /var/log/pryv/audit/pryvio_core/:/app/audit # to migrate data from there
+    environment:
+      - NUM_PROCS=1
+      - STARTING_PORT=3000
+    links:
+      - mongodb
+    networks:
+      - backend
+  mongodb:
+    image: "eu.gcr.io/pryvio/mongodb:1.6.0"
+    container_name: pryvio_mongodb
+    networks:
+      - backend
+    volumes:
+      - ${PRYV_CONF_ROOT}/pryv/mongodb/conf/:/app/conf/:ro
+      - ${PRYV_CONF_ROOT}/pryv/mongodb/data/:/app/data/
+      - ${PRYV_CONF_ROOT}/pryv/mongodb/log/:/app/log/
+      - ${PRYV_CONF_ROOT}/pryv/mongodb/backup/:/app/backup/
+networks:
+  backend:
+    driver: bridge
+    name: pryv_backend

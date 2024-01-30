@@ -1,0 +1,44 @@
+{
+  "http": {
+    "port": 7000,
+    "ip": "0.0.0.0"
+  },
+  "logs": {
+    "prefix": "config-leader",
+    "console": {
+      "active": true,
+      "level": "info",
+      "colorize": true
+    },
+    "file": {
+      "active": false
+    },
+    "audit": {
+      "filePath": "/app/log/audit.log"
+    }
+  },
+  "registerUrl": "http://pryvio_register:9000",
+  "templatesPath": "/app/data",
+  "databasePath": "/app/database",
+  "internals": {
+    "SSO_COOKIE_SIGN_SECRET": "REPLACE_ME",
+    "FILES_READ_TOKEN_SECRET": "REPLACE_ME",
+    "CORE_SYSTEM_KEY": "REPLACE_ME",
+    "CORE_MAIL_KEY": "REPLACE_ME",
+    "REGISTER_SYSTEM_KEY_1": "REPLACE_ME"
+  },
+  "followers": {
+    "FOLLOWER_SINGLENODE_KEY": {
+      "url": "http://pryvio_config_follower:6000",
+      "role": "singlenode"
+    }
+  },
+  "gitRepoPath": "/app/conf/",
+  "platformSettings": {
+    "platformConfig": "/app/conf/platform.yml",
+    "platformTemplate": "/app/conf/template-platform.yml"
+  },
+  "credentials": {
+    "filePath": "/app/data/credentials.txt"
+  }
+}

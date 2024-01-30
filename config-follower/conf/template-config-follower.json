@@ -1,0 +1,24 @@
+{
+  "http": {
+    "port": 6000,
+    "ip": "0.0.0.0"
+  },
+  "logs": {
+    "prefix": "config-follower",
+    "console": {
+      "active": true,
+      "level": "info",
+      "colorize": true
+    },
+    "file": {
+      "active": false
+    }
+  },
+  "leader": {
+    "url": "http://config-leader:7000",
+    "auth": "FOLLOWER_SINGLENODE_KEY"
+  },
+  "paths": {
+    "dataFolder": "/app/pryv/"  
+  }
+}

@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+# only run if Redis container is not running. Otherwise, you must reboot it to obtain write permissions again.
+
+ignoreRedis=0
+if [ "$1" == "--ignore-redis" ]; then
+  ignoreRedis=1
+  echo "Ignoring if Redis is running. Make sure that you reboot Redis after your operations, otherwise your Pryv.io will not run properly."
+fi
+
+docker ps 2> /dev/null | grep redis &> /dev/null
+if [ $? == 0 -a $ignoreRedis == 0 ]; then
+  echo "Redis container running. Please shut it down before running script".
+  echo "You can shut it down running: 'docker stop pryvio_redis' and launch it afterwards using './run-pryv'"
+  echo "If you will reboot Redis shortly afterwards, you can ignore this error using '--ignore-redis'"
+  exit 1
+fi
+
+echo "Ensuring data and log folders permissions"
+
+sudo chown -R 9999:9999 ./pryv
+sudo chown -R 9999:9999 ./config-leader
+sudo chown -R 9999:9999 ./config-follower
+
+echo "Done!"

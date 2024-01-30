@@ -1,0 +1,149 @@
+{
+  "domain": "DOMAIN",
+  "dns": {
+    "port": 5353,
+    "ip": "0.0.0.0",
+    "name": "reg.DOMAIN",
+    "domain": "DOMAIN",
+    "domains": ["DOMAIN"],
+    "certificateAuthorityAuthorization": {
+      "issuer": "SSL_CAA_ISSUER"
+    },
+    "nameserver": NAME_SERVER_ENTRIES,
+    "staticDataInDomain": {
+      "adm": {
+        "alias": {
+          "name": "local.DOMAIN"
+        }
+      },
+      "sw": {
+        "alias": {
+          "name": "local.DOMAIN"
+        }
+      },
+      "mfa": {
+        "alias": {
+          "name": "local.DOMAIN"
+        }
+      },
+      "reg": {
+        "alias": {
+          "name": "local.DOMAIN"
+        }
+      }, 
+      "access": {
+        "alias": {
+          "name": "local.DOMAIN"
+        }
+      }, 
+      "mail": {
+        "alias": {
+          "name": "local.DOMAIN"
+        }
+      }, 
+      "lead": {
+        "alias": {
+          "name": "local.DOMAIN"
+        }
+      }, 
+      "co1": {
+        "alias": {
+          "name": "local.DOMAIN"
+        }
+      },
+      "cr1": {
+        "alias": {
+          "name": "local.DOMAIN"
+        }
+      }, 
+      "local": {
+        "ip": "SINGLE_MACHINE_IP_ADDRESS"
+      }
+    },
+    "customEntries": DNS_CUSTOM_ENTRIES,
+    "mail": DNS_MX_RECORDS,
+    "domain_A": "DNS_ROOT_DOMAIN_A_RECORD",
+    "rootTXT": {
+      "description": DNS_ROOT_TXT_ARRAY
+    }
+  },
+  "auth": {
+    "coreSystemKey": "CORE_SYSTEM_KEY",
+    "authorizedKeys": {
+      "REGISTER_ADMIN_KEY": { "roles": ["admin"]},
+      "REGISTER_SYSTEM_KEY_1": {"roles": ["system"]}
+    }
+  },
+  "redis": {
+    "host": "redis",
+    "port": 6379
+  },
+  "airbrake": {
+    "disable": true,
+    "key": "88ec825519c81c3a248a5d19284970a0",
+    "projectId": "95889"
+  },
+  "access": {
+    "defaultAuthUrl": "DEFAULT_AUTH_URL",
+    "trustedAuthUrls": TRUSTED_AUTH_URLS
+  },
+  "server": {
+    "ssl": false,
+    "port": 9000
+  },
+  "net": {
+    "aaservers": {
+      "pilot": [
+        {
+          "base_url": "https://co1.DOMAIN/",
+          "authorization": "CORE_SYSTEM_KEY"
+        }
+      ]
+    },
+    "aahostings": {
+      "regions": {
+        "pilot": {
+          "name": "Single node",
+          "localizedName": {
+            "fr": "Single node"
+          },
+          "zones": {
+            "pilot": {
+              "name": "Single node Core",
+              "localizedName": {
+                "fr": "Single node Core"
+              },
+              "hostings": {
+                "pilot": {
+                  "url": "http://DOMAIN",
+                  "name": "Single node Core",
+                  "description": "Local core inside the Single node deploy",
+                  "localizedDescription": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "hostnameOrIP": "https://reg.DOMAIN",
+  "invitationTokens": INVITATION_TOKENS,
+  "service": {
+    "serial": "2019061301",
+    "name": "PLATFORM_NAME",
+    "support": "SUPPORT_URL",
+    "terms": "TERMS_OF_USE_URL",
+    "register": "https://reg.DOMAIN",
+    "home": "https://sw.DOMAIN",
+    "eventTypes": "EVENT_TYPES_URL",
+    "assets": SERVICE_INFO_ASSETS,
+    "access": "https://access.DOMAIN/access",
+    "api": "https://{username}.DOMAIN"
+  },
+  "reporting": {
+    "licenseName": "LICENSE_NAME",
+    "role": "reg-master",
+    "templateVersion": "TEMPLATE_VERSION"
+  }
+}

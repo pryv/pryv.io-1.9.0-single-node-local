@@ -1,0 +1,16 @@
+version: "3.5"
+services:
+  ssl-certificate:
+    image: "eu.gcr.io/pryvio/ssl-certificate:1.1.4"
+    container_name: pryvio_ssl_certificate
+    networks:
+      - backend
+    volumes:
+      - ./data/:/app/leader-data/
+      - ./ssl/conf/:/app/conf/
+      - ./ssl/log/:/app/log/
+
+networks:
+  backend:
+    driver: bridge
+    name: pryv_backend

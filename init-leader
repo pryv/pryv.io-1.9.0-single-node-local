@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+set -e
+
+CONFIG_FILE=config-leader.json
+PLATFORM_FILE=platform.yml
+
+TEMPLATE_CONFIG_FILE=template-$CONFIG_FILE
+TEMPLATE_PLATFORM_FILE=template-$PLATFORM_FILE
+
+# working dir fix
+PRYV_FOLDER=$(cd $(dirname "$0"); pwd)
+cd $PRYV_FOLDER/config-leader/conf
+
+# generate first
+if [ ! -f $PLATFORM_FILE ]
+then
+  cp $TEMPLATE_PLATFORM_FILE $PLATFORM_FILE
+  echo "initial '$PLATFORM_FILE' file created"
+fi
+if [ ! -f $CONFIG_FILE ]
+then
+  cp $TEMPLATE_CONFIG_FILE $CONFIG_FILE
+  echo "initial '$CONFIG_FILE' file created"
+fi
+
+cd $PRYV_FOLDER

@@ -1,0 +1,30 @@
+---
+database:
+  host: "mongodb"
+  port: 27017
+  name: "pryv-node"
+nats:
+  uri: "nats://core:4222"
+userFiles:
+  path: "/app/data/users"
+eventFiles:
+  attachmentsDirPath: "/app/data/attachments"
+  previewsDirPath: "/app/data/previews"
+logs:
+  file:
+    active: true
+    level: "info"
+    path: "/app/log/webhooks.log"
+    rotation:
+      isActive: LOG_ROTATION_ACTIVE
+      days: LOG_ROTATION_DAYS
+  console:
+    active: true
+    level: "info"
+  airbrake:
+    active: false
+    key: "ba44e430f8fdf66e820717660e838874"
+    projectId: "247285"
+serviceInfoUrl: "http://register:9000/service/info"
+trace:
+  enable: false

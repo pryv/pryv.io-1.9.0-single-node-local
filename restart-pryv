@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# Directory where application configuration files are supposed to be stored
+export PRYV_CONF_ROOT="/var/pryv"
+# Host machine hostname, used by reporting and airbrake
+export HOSTNAME=$HOSTNAME
+
+# check
+[[ -e ${PRYV_CONF_ROOT}/pryv/pryv.yml ]] || { echo >&2 "The file ${PRYV_CONF_ROOT}/pryv/pryv.yml was not found."; exit 1; }
+
+# stop
+docker-compose -f ${PRYV_CONF_ROOT}/pryv/pryv.yml down
+
+# run
+echo "Running Pryv/core component."
+docker-compose -f ${PRYV_CONF_ROOT}/pryv/pryv.yml up -d

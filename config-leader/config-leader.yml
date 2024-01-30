@@ -1,0 +1,22 @@
+version: "3.5"
+services:
+  config-leader:
+    image: "eu.gcr.io/pryvio/config-leader:1.2.22"
+    container_name: pryvio_config_leader
+    networks:
+      - frontend
+      - backend
+    volumes:
+      - ./conf/:/app/conf/
+      - ./log/:/app/log/
+      - ./data/:/app/data/
+      - ./database/:/app/database/
+    restart: always
+
+networks:
+  frontend:
+    driver: bridge
+    name: pryv_frontend
+  backend:
+    driver: bridge
+    name: pryv_backend

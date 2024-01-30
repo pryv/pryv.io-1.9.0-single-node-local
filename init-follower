@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+set -e
+
+TEMPLATE_CONFIG_FILE=template-config-follower.json
+
+CONFIG_FILE=config-follower.json
+
+# working dir fix
+PRYV_FOLDER=$(cd $(dirname "$0"); pwd)
+cd $PRYV_FOLDER/config-follower/conf
+
+# generate first
+if [ ! -f $CONFIG_FILE ]
+then
+  cp $TEMPLATE_CONFIG_FILE $CONFIG_FILE
+  echo "initial 'conifg-follower.json' file created"
+fi
+
+cd $PRYV_FOLDER

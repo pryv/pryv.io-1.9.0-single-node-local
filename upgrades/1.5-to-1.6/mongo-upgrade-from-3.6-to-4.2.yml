@@ -1,0 +1,22 @@
+version: '3.5'
+services:
+  pryvio_mongodb_migration_step_1:
+    image: "eu.gcr.io/pryvio/mongodb:migration-4.0.20"
+    container_name: pryvio_mongodb_migration_step_1
+    volumes:
+      - ./mongodb-not-replica-set.conf:/app/conf/mongodb.conf:ro
+      - ${PRYV_CONF_ROOT}/pryv/mongodb/data/:/app/data/
+      - ${PRYV_CONF_ROOT}/pryv/mongodb/log/:/app/log/
+    restart: "no"
+    environment:
+      - NUM_PROCS=1
+      
+  pryvio_mongodb_migration_step_2:
+    image: "eu.gcr.io/pryvio/mongodb:migration-4.2.9"
+    container_name: pryvio_mongodb_migration_step_2
+    volumes:
+      - ${PRYV_CONF_ROOT}/pryv/mongodb/data/:/app/data/
+      - ${PRYV_CONF_ROOT}/pryv/mongodb/log/:/app/log/
+    restart: "no"
+    environment:
+      - NUM_PROCS=1
