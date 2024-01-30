@@ -11,10 +11,11 @@ services:
       - ./conf/:/app/conf/
       - /var/run/docker.sock:/var/run/docker.sock:ro
       # adapt host mounting point to match the user with whom you performed 'docker login'
-      - /home/docker/.docker/config.json:/root/.docker/config.json 
+      - ${HOME}/.docker/config.json:/root/.docker/config.json 
     restart: always
     environment:
       - PRYV_CONF_ROOT
+      - HOME
 networks:
   frontend:
     driver: bridge

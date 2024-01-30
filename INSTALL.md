@@ -49,7 +49,7 @@ The following instructions need to be executed on the single-node machine:
 - Unarchive the configuration in place.
 
 ```bash
-export PRYV_CONF_ROOT="/var/pryv"
+export PRYV_CONF_ROOT="${PRYV_CONF_ROOT:=/var/pryv}"
 mkdir $PRYV_CONF_ROOT
 tar xvf template-single-node.tgz -C $PRYV_CONF_ROOT --strip-components=1 --same-owner
 cd $PRYV_CONF_ROOT
