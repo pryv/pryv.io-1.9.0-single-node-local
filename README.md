@@ -2,6 +2,8 @@
 
 This setup is based on the pryv.io-1.9.0-single-node template files using backloop.dev domain and SSL certficates. 
 
+
+
 ## Prerequistory 
 
 1- Docker & Docker-compose 
@@ -23,10 +25,6 @@ This setup is based on the pryv.io-1.9.0-single-node template files using backlo
   - Manualy: Download the certificates files manially from [backloop.dev](https://backloop.dev) and place them in `config-leader/data/singlenode/nginx/conf/secret`
 2- Renew SSL certificates when they expires after 2-3 months
 3- Follow the INSTALL.md or UPDATE.md file and skip steps where domain, dns .. have already been configured
-
-## Config 
-
-- 
 
 ## Notes 
 - This has been tested on ubuntu 22.04 with docker running as root 
