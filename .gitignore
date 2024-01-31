@@ -1,1 +1,4 @@
 config-leader/data/singlenode/nginx/conf/secret/*
+config-leader/data/credentials.txt
+config-leader/database/config-user-management.db
+pryv/*

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export PRYV_CONF_ROOT=/var/pryv
+export PRYV_CONF_ROOT="${PRYV_CONF_ROOT:=/var/pryv}"
 
 SCRIPT_FOLDER=$(cd $(dirname "$0"); pwd)
 cd $SCRIPT_FOLDER
